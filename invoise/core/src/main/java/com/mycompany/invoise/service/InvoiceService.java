@@ -1,12 +1,12 @@
 package com.mycompany.invoise.service;
 
 import com.mycompany.invoise.entity.Invoice;
-import com.mycompany.invoise.repository.InvoiceRepository;
+import com.mycompany.invoise.repository.InvoiceRepositoryInterface;
 
-public class InvoiceService {
+public class InvoiceService implements InvoiceServiceInterface {
     private static Long lastNumber = 0l;
 
-    private InvoiceRepository invoiceRepository = new InvoiceRepository();
+    private InvoiceRepositoryInterface invoiceRepository;
 
     public void createInvoice(Invoice invoice) {
         invoice.setNumber(String.valueOf(++lastNumber));

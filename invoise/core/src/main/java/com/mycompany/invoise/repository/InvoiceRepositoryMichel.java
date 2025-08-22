@@ -5,7 +5,7 @@ import com.mycompany.invoise.entity.Invoice;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvoiceRepositoryMichel {
+public class InvoiceRepositoryMichel implements InvoiceRepositoryInterface {
     private List<Invoice> invoices = new ArrayList<>();
 
     public void create(Invoice invoice) {

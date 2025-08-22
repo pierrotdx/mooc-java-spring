@@ -3,13 +3,12 @@ package com.mycompany.dvdstore.repository;
 import com.mycompany.dvdstore.entity.Movie;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoLiveMovieRepository {
+public class GoLiveMovieRepository implements MovieRepositoryInterface {
     private final static List<Movie> movies = new ArrayList<>();
 
     public void add(Movie movie) {

@@ -6,6 +6,14 @@ import com.mycompany.invoise.repository.InvoiceRepositoryInterface;
 public class InvoiceService implements InvoiceServiceInterface {
     private static Long lastNumber = 0l;
 
+    public InvoiceRepositoryInterface getInvoiceRepository() {
+        return invoiceRepository;
+    }
+
+    public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepository) {
+        this.invoiceRepository = invoiceRepository;
+    }
+
     private InvoiceRepositoryInterface invoiceRepository;
 
     public void createInvoice(Invoice invoice) {

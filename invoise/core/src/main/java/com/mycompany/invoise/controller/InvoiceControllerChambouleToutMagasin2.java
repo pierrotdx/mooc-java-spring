@@ -3,9 +3,9 @@ package com.mycompany.invoise.controller;
 import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.service.InvoiceServiceInterface;
 
-import java.util.Scanner;
+public class InvoiceControllerChambouleToutMagasin2 implements InvoiceControllerInterface {
+    private InvoiceServiceInterface invoiceService;
 
-public class InvoiceController implements InvoiceControllerInterface {
     public InvoiceServiceInterface getInvoiceService() {
         return invoiceService;
     }
@@ -14,15 +14,10 @@ public class InvoiceController implements InvoiceControllerInterface {
         this.invoiceService = invoiceService;
     }
 
-    private InvoiceServiceInterface invoiceService;
-
     public void createInvoice() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What is the customer name?");
-        String customerName = sc.nextLine();
+        System.out.println("Usage of a scanner");
         Invoice invoice = new Invoice();
-        invoice.setCustomerName(customerName);
-
+        invoice.setCustomerName("Virgin Galactic");
         this.invoiceService.createInvoice(invoice);
     }
 }

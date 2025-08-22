@@ -4,7 +4,16 @@ import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.service.InvoiceServiceInterface;
 
 public class InvoiceControllerMichel implements InvoiceControllerInterface {
+    public InvoiceServiceInterface getInvoiceService() {
+        return invoiceService;
+    }
+
+    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
+        this.invoiceService = invoiceService;
+    }
+
     private InvoiceServiceInterface invoiceService;
+
     public void createInvoice() {
         String customerName = "Tesla";
         Invoice invoice = new Invoice();

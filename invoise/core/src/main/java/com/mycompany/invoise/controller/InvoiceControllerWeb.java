@@ -3,7 +3,7 @@ package com.mycompany.invoise.controller;
 import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.service.InvoiceServiceInterface;
 
-public class InvoiceControllerMichel implements InvoiceControllerInterface {
+public class InvoiceControllerWeb implements InvoiceControllerInterface {
     public InvoiceServiceInterface getInvoiceService() {
         return invoiceService;
     }

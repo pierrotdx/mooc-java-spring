@@ -1,0 +1,25 @@
+package com.mycompany.dvdstore.controller;
+
+import com.mycompany.dvdstore.entity.Movie;
+import com.mycompany.dvdstore.service.MovieService;
+
+import java.util.Scanner;
+
+public class MovieController {
+    private final MovieService movieService = new MovieService();
+
+    public void addMovieConsole() {
+        System.out.println("What is the title of the movie?");
+        Scanner scanner = new Scanner(System.in);
+        String title = scanner.nextLine();
+
+        System.out.println("What is the genre of the movie?");
+        String genre = scanner.nextLine();
+
+        Movie movie = new Movie();
+        movie.setTitle(title);
+        movie.setGenre(genre);
+
+        this.movieService.registerMovie(movie);
+    }
+}

@@ -13,15 +13,14 @@ public class InvoiceServicePrefix implements InvoiceServiceInterface {
     @Value("${invoice.prefix}")
     private String prefix;
 
-    @Autowired
-    private InvoiceRepositoryInterface invoiceRepository;
+    public InvoiceServicePrefix(InvoiceRepositoryInterface invoiceRepository) {
+        this.invoiceRepository = invoiceRepository;
+    }
+
+    private final InvoiceRepositoryInterface invoiceRepository;
 
     public InvoiceRepositoryInterface getInvoiceRepository() {
         return invoiceRepository;
-    }
-
-    public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepository) {
-        this.invoiceRepository = invoiceRepository;
     }
 
     public void createInvoice(Invoice invoice) {

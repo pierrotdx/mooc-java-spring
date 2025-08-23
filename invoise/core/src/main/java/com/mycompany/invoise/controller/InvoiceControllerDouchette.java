@@ -2,7 +2,9 @@ package com.mycompany.invoise.controller;
 
 import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.service.InvoiceServiceInterface;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class InvoiceControllerDouchette implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceService;
 

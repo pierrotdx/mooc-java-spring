@@ -1,8 +1,8 @@
-package com.mycompany.invoise.service;
+package com.mycompany.invoise.service.prefix;
 
 import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.repository.InvoiceRepositoryInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mycompany.invoise.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

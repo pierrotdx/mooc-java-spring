@@ -10,22 +10,30 @@ import java.util.List;
 
 public class FileMovieRepository implements MovieRepositoryInterface {
     private final static List<Movie> movies = new ArrayList<>();
+    private File file;
 
     public void add(Movie movie) {
-        FileWriter writer;
         try {
             File directory = new File("C:\\temp");
             if (!directory.exists()) {
                 directory.mkdir();
             }
-            writer = new FileWriter("C:\\temp\\movies.txt",true);
+            FileWriter writer = new FileWriter(this.file,true);
             String lineToAdd = String.format("%s;%s\n", movie.getTitle(), movie.getGenre());
             writer.write(lineToAdd);
             writer.close();
-            System.out.printf("The movie %s has been added to movies.txt.\n", movie.getTitle());
+            System.out.printf("The movie %s has been added to %s.\n", movie.getTitle(), this.file.getName());
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 }

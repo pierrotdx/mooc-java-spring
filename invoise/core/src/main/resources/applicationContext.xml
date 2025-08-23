@@ -8,13 +8,11 @@ http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config />
+    <context:property-placeholder location="classpath:application.properties" />
 
     <bean class="com.mycompany.invoise.repository.InvoiceRepositoryDatabase" />
 
-    <bean class="com.mycompany.invoise.service.InvoiceServicePrefix">
-        <property name="lastNumber" value="112" />
-        <property name="prefix" value="INV_" />
-    </bean>
+    <bean class="com.mycompany.invoise.service.InvoiceServicePrefix" />
 
     <bean class="com.mycompany.invoise.controller.InvoiceControllerWeb"/>
 

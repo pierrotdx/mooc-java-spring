@@ -26,4 +26,9 @@ public class DefaultMovieService implements MovieServiceInterface {
     public List<Movie> getMovieList() {
         return this.movieRepository.list();
     }
+
+    @Override
+    public Movie getMovieById(long id) {
+        return this.movieRepository.getById(id);
+    }
 }

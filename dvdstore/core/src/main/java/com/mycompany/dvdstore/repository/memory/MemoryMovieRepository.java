@@ -15,4 +15,9 @@ public class MemoryMovieRepository implements MovieRepositoryInterface {
         movies.add(movie);
         System.out.printf("The movie %s has been added.\n", movie.getTitle());
     }
+
+    @Override
+    public List<Movie> list() {
+        return movies;
+    }
 }

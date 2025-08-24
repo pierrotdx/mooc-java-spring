@@ -16,10 +16,11 @@ public class InvoiceControllerDouchette implements InvoiceControllerInterface {
         this.invoiceService = invoiceService;
     }
 
-    public void createInvoice() {
+    public String createInvoice(Invoice invoice) {
         System.out.println("Usage of a scanner");
-        Invoice invoice = new Invoice();
+        invoice = new Invoice();
         invoice.setCustomerName("Virgin Galactic");
         this.invoiceService.createInvoice(invoice);
+        return null;
     }
 }

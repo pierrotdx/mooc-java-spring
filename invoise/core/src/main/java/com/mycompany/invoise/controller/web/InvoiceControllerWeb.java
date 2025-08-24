@@ -3,9 +3,13 @@ package com.mycompany.invoise.controller.web;
 import com.mycompany.invoise.controller.InvoiceControllerInterface;
 import com.mycompany.invoise.entity.Invoice;
 import com.mycompany.invoise.service.InvoiceServiceInterface;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class InvoiceControllerWeb implements InvoiceControllerInterface {
@@ -29,8 +33,9 @@ public class InvoiceControllerWeb implements InvoiceControllerInterface {
     }
 
     @RequestMapping("/invoise-home")
-    public String displayHome() {
+    public @ModelAttribute("invoices") List<Invoice> displayHome() {
         System.out.println("La méthode displayHome() a été invoquée.");
-        return "index";
+        List<Invoice> invoices = this.invoiceService.getInvoiceList();
+        return invoices;
     }
 }

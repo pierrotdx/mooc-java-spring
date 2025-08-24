@@ -12,7 +12,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new SpringApplication(App.class).run();
+        ApplicationContext context = new SpringApplication(App.class).run(args);
         InvoiceControllerInterface invoiceController = context.getBean(InvoiceControllerInterface.class);
         invoiceController.createInvoice();
     }

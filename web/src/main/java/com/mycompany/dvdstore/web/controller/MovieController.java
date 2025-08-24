@@ -33,6 +33,3 @@ public class MovieController {
 
         this.movieService.registerMovie(movie);
     }
-
-
-}

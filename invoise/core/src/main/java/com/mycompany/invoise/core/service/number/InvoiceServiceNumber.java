@@ -29,4 +29,9 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
     public List<Invoice> getInvoiceList() {
         return this.invoiceRepository.list();
     }
+
+    @Override
+    public Invoice getInvoiceByNumber(String number) {
+        return this.invoiceRepository.getById(number);
+    }
 }

@@ -27,4 +27,13 @@ public class InvoiceRepositoryDatabase implements InvoiceRepositoryInterface {
         invoice2.setCustomerName("La Poste");
         return List.of(invoice1, invoice2);
     }
+
+    @Override
+    public Invoice getById(String number) {
+        Invoice invoice = new Invoice();
+        invoice.setNumber(number);
+        invoice.setCustomerName("EDF");
+        invoice.setOrderNumber("ON_002");
+        return invoice;
+    }
 }

@@ -1,8 +1,8 @@
-package com.mycompany.dvdstore.controller;
+package com.mycompany.dvdstore.web.controller;
 
-import com.mycompany.dvdstore.entity.Movie;
-import com.mycompany.dvdstore.service.MovieServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.mycompany.dvdstore.core.entity.Movie;
+import com.mycompany.dvdstore.core.service.MovieServiceInterface;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;

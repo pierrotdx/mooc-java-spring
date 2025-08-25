@@ -17,12 +17,15 @@ public class FileMovieRepository implements MovieRepositoryInterface {
 
     public void add(Movie movie) {
         try {
+            long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
+            movie.setId(lastId+1);
+
             File directory = new File("C:\\temp");
             if (!directory.exists()) {
                 directory.mkdir();
             }
             FileWriter writer = new FileWriter(this.file,true);
-            String lineToAdd = String.format("%s;%s\n", movie.getTitle(), movie.getGenre());
+            String lineToAdd = String.format("%s,%s,%s,%s\n", movie.getId(), movie.getTitle(), movie.getGenre(), movie.getDescription());
             writer.write(lineToAdd);
             writer.close();
             System.out.printf("The movie %s has been added to %s.\n", movie.getTitle(), this.file.getName());

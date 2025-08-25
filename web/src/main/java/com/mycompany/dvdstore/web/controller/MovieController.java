@@ -4,8 +4,7 @@ import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.service.MovieServiceInterface;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -21,10 +20,16 @@ public class MovieController {
         return movieService;
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     String displayMovieCard(@PathVariable("id") long movieId, Model model) {
         Movie movie = this.movieService.getMovieById(movieId);
         model.addAttribute("movie", movie);
         return "movie-details";
+    }
+
+    @PostMapping("")
+    public String addMovie(@ModelAttribute Movie movie) {
+        this.movieService.registerMovie(movie);
+        return "movie-added";
     }
 }

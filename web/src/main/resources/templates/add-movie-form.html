@@ -5,7 +5,7 @@
     <title>Add movie</title>
 </head>
 <body>
-<form th:action="@{/movie}" method="POST" th:object="${movieForm}">
+<form th:action="@{/movie/add}" method="POST" th:object="${movieForm}">
     <p>
         Title
         <input type="text" th:field="*{title}"/>

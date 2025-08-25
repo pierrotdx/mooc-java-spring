@@ -26,25 +26,25 @@ public class InvoiceControllerWeb {
         this.invoiceService = invoiceService;
     }
 
-//    @PostMapping
-//    public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult results) {
-//        if (results.hasErrors()) {
-//            return "invoice-create-form";
-//        }
-//        Invoice invoice = new Invoice();
-//        invoice.setOrderNumber(invoiceForm.getOrderNumber());
-//        invoice.setCustomerName(invoiceForm.getCustomerName());
-//        this.invoiceService.createInvoice(invoice);
-//        return "invoice-created";
-//    }
+    @PostMapping("/create")
+    public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult results) {
+        if (results.hasErrors()) {
+            return "invoice-create-form";
+        }
+        Invoice invoice = new Invoice();
+        invoice.setOrderNumber(invoiceForm.getOrderNumber());
+        invoice.setCustomerName(invoiceForm.getCustomerName());
+        this.invoiceService.createInvoice(invoice);
+        return "invoice-created";
+    }
 
-//    @GetMapping("/home")
-//    public String displayHome(Model model) {
-//        System.out.println("La méthode displayHome() a été invoquée.");
-//        List<Invoice> invoices = this.invoiceService.getInvoiceList();
-//        model.addAttribute("invoices", invoices);
-//        return "invoice-home";
-//    }
+    @GetMapping("/home")
+    public String displayHome(Model model) {
+        System.out.println("La méthode displayHome() a été invoquée.");
+        List<Invoice> invoices = this.invoiceService.getInvoiceList();
+        model.addAttribute("invoices", invoices);
+        return "invoice-home";
+    }
 
 //    @GetMapping("/{id}")
 //    public String displayInvoice(@PathVariable("id") String number, Model model) {

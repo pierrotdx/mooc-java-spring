@@ -19,10 +19,7 @@ public class HomeController {
     private final MovieServiceInterface movieService;
 
     @GetMapping("/dvdstore-home")
-    public @ModelAttribute("movies") List<Movie> displayHome() {
-        List<Movie> movies = this.movieService.getMovieList();
-        return movies;
-    }
+    public void displayHome() {}
 
     @GetMapping("/add-movie-form")
     public void displayMovieForm(@ModelAttribute MovieForm movie) {}

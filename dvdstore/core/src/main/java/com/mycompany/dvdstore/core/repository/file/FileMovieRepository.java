@@ -15,7 +15,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
     @Value("${movies.file.location}")
     private File file;
 
-    public void add(Movie movie) {
+    public Movie add(Movie movie) {
         try {
             long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
             movie.setId(lastId+1);
@@ -33,6 +33,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         catch (IOException e) {
             e.printStackTrace();
         }
+        return movie;
     }
 
     public File getFile() {

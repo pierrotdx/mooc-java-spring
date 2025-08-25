@@ -1,12 +1,7 @@
 package com.mycompany.dvdstore.web.controller;
 
-import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.service.MovieServiceInterface;
-import com.mycompany.dvdstore.web.form.MovieForm;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,23 +18,23 @@ public class MovieController {
         return movieService;
     }
 
-    @GetMapping("/{id}")
-    String displayMovieCard(@PathVariable("id") long movieId, Model model) {
-        Movie movie = this.movieService.getMovieById(movieId);
-        model.addAttribute("movie", movie);
-        return "movie-details";
-    }
+//    @GetMapping("/{id}")
+//    String displayMovieCard(@PathVariable("id") long movieId, Model model) {
+//        Movie movie = this.movieService.getMovieById(movieId);
+//        model.addAttribute("movie", movie);
+//        return "movie-details";
+//    }
 
-    @PostMapping("")
-    public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult results) {
-        if (results.hasErrors()) {
-            return "add-movie-form";
-        }
-        Movie movie = new Movie();
-        movie.setTitle(movieForm.getTitle());
-        movie.setGenre(movieForm.getGenre());
-        movie.setDescription(movieForm.getDescription());
-        this.movieService.registerMovie(movie);
-        return "movie-added";
-    }
+//    @PostMapping("")
+//    public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult results) {
+//        if (results.hasErrors()) {
+//            return "add-movie-form";
+//        }
+//        Movie movie = new Movie();
+//        movie.setTitle(movieForm.getTitle());
+//        movie.setGenre(movieForm.getGenre());
+//        movie.setDescription(movieForm.getDescription());
+//        this.movieService.registerMovie(movie);
+//        return "movie-added";
+//    }
 }

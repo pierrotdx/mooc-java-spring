@@ -5,13 +5,13 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class MovieForm {
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message = "Veuillez entrer un titre")
+    @Size(max = 20, message = "Entrez un titre de {max} caractères au plus")
     private String title;
-    @NotEmpty
+    @NotEmpty(message = "Veuillez choisir un genre")
     private String genre;
     private Long id;
-    @Size(max = 255)
+    @Size(max = 255, message = "Entrez un titre de {max} caractères au plus")
     private String description;
 
     public String getTitle() {

@@ -20,9 +20,10 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
 
     private InvoiceRepositoryInterface invoiceRepository;
 
-    public void createInvoice(Invoice invoice) {
+    public Invoice createInvoice(Invoice invoice) {
         invoice.setNumber(String.valueOf(++lastNumber));
         this.invoiceRepository.create(invoice);
+        return invoice;
     }
 
     @Override

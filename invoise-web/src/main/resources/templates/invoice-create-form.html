@@ -9,10 +9,12 @@
     <p>
         Customer name
         <input type="text" th:field="*{customerName}"/>
+        <div th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></div>
     </p>
     <p>
         Order number
         <input type="text" th:field="*{orderNumber}"/>
+        <div th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></div>
     </p>
     <input type="submit" value="OK"/>
 </form>

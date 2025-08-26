@@ -31,7 +31,7 @@ public class InvoiceResource {
 
     @GetMapping
     public List<Invoice> list() {
-        System.out.println("La méthode displayHome() a été invoquée.");
+        System.out.println("La méthode displayHomFe() a été invoquée.");
         return this.invoiceService.getInvoiceList();
     }
 

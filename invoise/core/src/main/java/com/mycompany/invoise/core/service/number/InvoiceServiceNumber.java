@@ -3,6 +3,7 @@ package com.mycompany.invoise.core.service.number;
 import com.mycompany.invoise.core.entity.Invoice;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,16 +16,15 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
         return invoiceRepository;
     }
 
+    @Autowired
+    private InvoiceRepositoryInterface invoiceRepository;
+
     public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
     }
 
-    private InvoiceRepositoryInterface invoiceRepository;
-
     public Invoice createInvoice(Invoice invoice) {
-        invoice.setNumber(String.valueOf(++lastNumber));
-        this.invoiceRepository.create(invoice);
-        return invoice;
+        return this.invoiceRepository.create(invoice);
     }
 
     @Override

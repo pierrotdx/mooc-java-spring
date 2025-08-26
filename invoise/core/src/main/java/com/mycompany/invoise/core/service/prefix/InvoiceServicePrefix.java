@@ -27,7 +27,7 @@
 //
 //    public Invoice createInvoice(Invoice invoice) {
 //        invoice.setNumber(String.valueOf(this.prefix + (++lastNumber)));
-//        this.invoiceRepository.create(invoice);
+//        this.invoiceRepository.save(invoice);
 //        return invoice;
 //    }
 //
@@ -48,12 +48,12 @@
 //    }
 //
 //    @Override
-//    public List<Invoice> getInvoiceList() {
-//        return this.invoiceRepository.list();
+//    public Iterable<Invoice> getInvoiceList() {
+//        return this.invoiceRepository.findAll();
 //    }
 //
 //    @Override
 //    public Invoice getInvoiceByNumber(String number) {
-//        return this.invoiceRepository.getById(number);
+//        return this.invoiceRepository.findById(number).orElseThrow();
 //    }
 //}

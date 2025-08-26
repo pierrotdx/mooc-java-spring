@@ -32,7 +32,7 @@ public class MovieResource {
     }
 
     @GetMapping
-    public List<Movie> list() {
+    public Iterable<Movie> list() {
         return this.movieService.getMovieList();
     }
 }

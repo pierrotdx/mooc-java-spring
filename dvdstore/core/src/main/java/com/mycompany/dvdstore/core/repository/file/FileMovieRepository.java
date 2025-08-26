@@ -68,44 +68,41 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         return movies;
     }
 
-//    public Optional<Movie> findById(long id) {
-//        final Movie movie = new Movie();
-//        movie.setId(id);
-//        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
-//            for(String line; (line = br.readLine()) != null; ) {
-//
-//                final String[] allProperties = line.split("\\,");
-//                final long nextMovieId=Long.parseLong(allProperties[0]);
-//                if (nextMovieId==id) {
-//                    movie.setTitle(allProperties[1]);
-//                    movie.setGenre(allProperties[2]);
-//                    movie.setDescription(allProperties[3]);
-//                    return Optional.of(movie);
-//                }
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (NumberFormatException e) {
-//            System.err.println("A movie from the file does not have a proper id");
-//            e.printStackTrace();
-//        }
-//        movie.setTitle("UNKNOWN");
-//        movie.setGenre("UNKNOWN");
-//        movie.setDescription("UNKNOWN");
-//        return Optional.of(movie);
-//    }
+    @Override
+    public Optional<Movie> findById(Long id) {
+        final Movie movie = new Movie();
+        movie.setId(id);
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+            for(String line; (line = br.readLine()) != null; ) {
+
+                final String[] allProperties = line.split("\\;");
+                final long nextMovieId=Long.parseLong(allProperties[0]);
+                if (nextMovieId==id) {
+                    movie.setTitle(allProperties[1]);
+                    movie.setGenre(allProperties[2]);
+                    movie.setDescription(allProperties[3]);
+                    return Optional.of(movie);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.err.println("A movie from the file does not have a proper id");
+            e.printStackTrace();
+        }
+        movie.setTitle("UNKNOWN");
+        movie.setGenre("UNKNOWN");
+        movie.setDescription("UNKNOWN");
+        return Optional.of(movie);
+    }
 
     @Override
     public <S extends Movie> Iterable<S> saveAll(Iterable<S> entities) {
             throw new UnsupportedOperationException();
     }
 
-    @Override
-    public Optional<Movie> findById(Long aLong) {
-        return Optional.empty();
-    }
 
     @Override
     public boolean existsById(Long aLong) {

@@ -4,9 +4,6 @@ import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class DefaultMovieService implements MovieServiceInterface {
     public DefaultMovieService(MovieRepositoryInterface movieRepository) {

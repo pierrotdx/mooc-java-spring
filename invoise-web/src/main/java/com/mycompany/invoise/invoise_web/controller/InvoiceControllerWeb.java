@@ -1,17 +1,14 @@
 package com.mycompany.invoise.invoise_web.controller;
 
-import com.mycompany.invoise.core.entity.Customer;
-import com.mycompany.invoise.core.entity.Invoice;
+import com.mycompany.invoise.core.entity.customer.Customer;
+import com.mycompany.invoise.core.entity.invoice.Invoice;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import com.mycompany.invoise.invoise_web.form.InvoiceForm;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/invoice")

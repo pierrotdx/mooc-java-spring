@@ -1,10 +1,9 @@
-package com.mycompany.invoise.core.entity;
-
+package com.mycompany.invoise.core.entity.customer;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Category {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,11 +11,15 @@ public class Category {
     @Column(nullable = false,length = 50)
     private String name;
 
-    public Category(String name) {
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true,optional = false)
+    @JoinColumn(name="ID_ADDRESS")
+    private Address address;
+
+    public Customer(String name) {
         this.name = name;
     }
 
-    public Category() {
+    public Customer() {
     }
 
     public Long getId() {
@@ -33,5 +36,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

@@ -1,6 +1,6 @@
 //package com.mycompany.invoise.core.service.prefix;
 //
-//import com.mycompany.invoise.core.entity.Invoice;
+//import com.mycompany.invoise.core.entity.invoice.Invoice;
 //import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 //import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 //import org.springframework.beans.factory.annotation.Value;

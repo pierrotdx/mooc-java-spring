@@ -27,9 +27,19 @@
     <p>
         Description
         <textarea th:field="*{description}"/>
+    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    </p>
+    <p>
+        Actor first name
+        <input type="text" th:field="*{actorFirstname}"/>
+    <div th:if="${#fields.hasErrors('actorFirstname')}" th:errors="*{actorFirstname}"></div>
+    </p>
+    <p>
+        Actor last name
+        <input type="text" th:field="*{actorLastname}"/>
+    <div th:if="${#fields.hasErrors('actorLastname')}" th:errors="*{actorLastname}"></div>
     </p>
     <input type="submit" value="OK"/>
-    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
 </form>
 </body>
 </html>

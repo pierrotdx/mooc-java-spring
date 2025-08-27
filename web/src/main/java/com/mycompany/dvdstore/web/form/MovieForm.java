@@ -13,6 +13,28 @@ public class MovieForm {
     private Long id;
     @Size(max = 255, message = "Entrez un titre de {max} caractères au plus")
     private String description;
+    @NotEmpty
+    @Size(max = 20)
+    private String actorFirstname;
+
+    public String getActorLastname() {
+        return actorLastname;
+    }
+
+    public void setActorLastname(String actorLastname) {
+        this.actorLastname = actorLastname;
+    }
+
+    public String getActorFirstname() {
+        return actorFirstname;
+    }
+
+    public void setActorFirstname(String actorFirstname) {
+        this.actorFirstname = actorFirstname;
+    }
+
+    @Size(max = 20)
+    private String actorLastname;
 
     public String getTitle() {
         return title;

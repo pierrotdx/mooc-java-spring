@@ -1,8 +1,8 @@
 package com.mycompany.dvdstore.core.repository.file;
 
-import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Value;
+import com.mycompany.dvdstore.core.entity.Movie;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -4,6 +4,9 @@ import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @Service
 public class DefaultMovieService implements MovieServiceInterface {
     public DefaultMovieService(MovieRepositoryInterface movieRepository) {
@@ -28,6 +31,18 @@ public class DefaultMovieService implements MovieServiceInterface {
 
     @Override
     public Movie getMovieById(long id) {
-        return this.movieRepository.findById(id).orElseThrow();
+        Optional<Movie> optionalMovie = movieRepository.findById(id);
+        if (optionalMovie.isEmpty()){
+            throw new NoSuchElementException();
+        }
+        Movie movie = optionalMovie.get();
+        //Initialize proxys
+        movie.getMainActor().getFirstName();
+        movie.getReviews().forEach(review -> {
+            review.getMark();
+            review.setMovie(null);
+        });
+        //
+        return movie;
     }
 }

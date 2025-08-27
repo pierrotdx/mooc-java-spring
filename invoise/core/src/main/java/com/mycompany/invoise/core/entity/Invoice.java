@@ -1,15 +1,47 @@
 package com.mycompany.invoise.core.entity;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Invoice {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "INVOICE_NUMBER")
+    @Column(name="INVOICE_NUMBER",columnDefinition="BIGINT")
     private String number;
-    private String customerName;
+    @Column(length = 13)
     private String orderNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CUSTOMER", nullable = false)
+    private Customer customer;
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "INVOICE_NUMBER", nullable = false)
+    private List<InvoiceLine> lines=new ArrayList<>();
+
+    public Invoice(String number, String orderNumber, Customer customer) {
+        this.number = number;
+        this.orderNumber = orderNumber;
+        this.customer = customer;
+    }
+
+    public Invoice(String number, Customer customer) {
+        this.number = number;
+        this.customer = customer;
+    }
+
+    public Invoice(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Invoice() {
+    }
 
     public String getNumber() {
         return number;
@@ -17,14 +49,6 @@ public class Invoice {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
     }
 
     public String getOrderNumber() {
@@ -35,17 +59,23 @@ public class Invoice {
         this.orderNumber = orderNumber;
     }
 
-    public Invoice() {
+    public List<InvoiceLine> getLines() {
+        return lines;
     }
 
-    public Invoice(String number, String customerName) {
-        this.number = number;
-        this.customerName = customerName;
+    public void addLine(InvoiceLine line) {
+        this.lines.add(line);
     }
 
-    public Invoice(String number, String customerName, String orderNumber) {
-        this.number = number;
-        this.customerName = customerName;
-        this.orderNumber = orderNumber;
+    public void removeLine(InvoiceLine line) {
+        this.lines.remove(line);
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

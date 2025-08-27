@@ -6,7 +6,6 @@ import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
@@ -29,7 +28,9 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
 
     @Override
     public Iterable<Invoice> getInvoiceList() {
-        return this.invoiceRepository.findAll();
+        Iterable<Invoice> invoices = this.invoiceRepository.findAll();
+        invoices.forEach(invoice -> invoice.getCustomer().getName()); // deproxyfication
+        return invoices;
     }
 
     @Override

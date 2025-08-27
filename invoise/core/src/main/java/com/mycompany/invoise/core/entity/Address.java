@@ -1,6 +1,6 @@
 package com.mycompany.invoise.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Address {

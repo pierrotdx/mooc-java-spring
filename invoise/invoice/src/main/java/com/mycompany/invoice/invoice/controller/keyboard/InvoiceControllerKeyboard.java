@@ -1,9 +1,9 @@
-package com.mycompany.invoise.core.controller.keyboard;
+package com.mycompany.invoice.invoice.controller.keyboard;
 
-import com.mycompany.invoise.core.controller.InvoiceControllerInterface;
+import com.mycompany.invoice.invoice.controller.InvoiceControllerInterface;
+import com.mycompany.invoice.invoice.service.InvoiceServiceInterface;
 import com.mycompany.invoise.core.entity.customer.Customer;
 import com.mycompany.invoise.core.entity.invoice.Invoice;
-import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 
 import java.util.Scanner;
 

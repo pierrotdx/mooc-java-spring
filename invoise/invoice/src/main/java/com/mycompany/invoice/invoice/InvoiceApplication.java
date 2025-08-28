@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EntityScan("com.mycompany.invoise.core.entity.invoice")
@@ -19,5 +20,10 @@ public class InvoiceApplication {
         Hibernate6Module module = new Hibernate6Module();
         module.disable(Hibernate6Module.Feature.USE_TRANSIENT_ANNOTATION);
         return module;
+    }
+
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
     }
 }

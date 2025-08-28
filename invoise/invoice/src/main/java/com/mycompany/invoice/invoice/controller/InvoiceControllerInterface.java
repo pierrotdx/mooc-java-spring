@@ -1,7 +1,7 @@
-package com.mycompany.invoise.core.controller;
+package com.mycompany.invoice.invoice.controller;
 
+import com.mycompany.invoice.invoice.service.InvoiceServiceInterface;
 import com.mycompany.invoise.core.entity.invoice.Invoice;
-import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 
 public interface InvoiceControllerInterface {
     String createInvoice(Invoice invoice);

@@ -1,9 +1,9 @@
-package com.mycompany.invoise.core.controller.scan;
+package com.mycompany.invoice.invoice.controller.scan;
 
-import com.mycompany.invoise.core.controller.InvoiceControllerInterface;
+import com.mycompany.invoice.invoice.controller.InvoiceControllerInterface;
+import com.mycompany.invoice.invoice.service.InvoiceServiceInterface;
 import com.mycompany.invoise.core.entity.customer.Customer;
 import com.mycompany.invoise.core.entity.invoice.Invoice;
-import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 
 //@Controller
 public class InvoiceControllerDouchette implements InvoiceControllerInterface {

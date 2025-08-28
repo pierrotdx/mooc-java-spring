@@ -16,6 +16,8 @@ public class InvoiceApplication {
 
     @Bean
     public Hibernate6Module datatypeHibernateModule() {
-        return new Hibernate6Module();
+        Hibernate6Module module = new Hibernate6Module();
+        module.disable(Hibernate6Module.Feature.USE_TRANSIENT_ANNOTATION);
+        return module;
     }
 }
